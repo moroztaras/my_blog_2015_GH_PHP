@@ -1,0 +1,25 @@
+Moroz\BlogBundle\Entity\Post:
+    type: entity
+    table: null
+    repositoryClass: Moroz\BlogBundle\Entity\PostRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '255'
+        author:
+            type: string
+            length: '100'
+            columnDefinition: varchar(100) NOT NULL DEFAULT 'Мороз_Тарас'
+        content:
+            type: text
+        postedDate:
+            type: datetime
+        counter:
+            type: integer
+    lifecycleCallbacks: {  }
