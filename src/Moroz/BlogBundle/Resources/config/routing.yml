@@ -1,0 +1,3 @@
+moroz_blog_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MorozBlogBundle:Default:index }
