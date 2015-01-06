@@ -1,3 +1,7 @@
+# MorozBlogBundle routes
+noroz_blog:
+    resource: "@MorozBlogBundle/Resources/config/routing.yml"
+    prefix:   /
 _wdt:
     resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"
     prefix:   /_wdt
@@ -14,5 +18,5 @@ _main:
     resource: routing.yml
 
 # AcmeDemoBundle routes (to be removed)
-_acme_demo:
-    resource: "@AcmeDemoBundle/Resources/config/routing.yml"
+#_acme_demo:
+#    resource: "@AcmeDemoBundle/Resources/config/routing.yml"
