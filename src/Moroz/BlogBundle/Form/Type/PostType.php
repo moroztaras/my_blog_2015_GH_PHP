@@ -1,7 +1,28 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: moroztaras
- * Date: 07.01.15
- * Time: 10:38
- */ 
+
+namespace Moroz\BlogBundle\Form\Type;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+class PostType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('title','text')
+            ->add('postedDate','date')
+            ->add('author','text')
+            ->add('content','textarea');
+    }
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'Moroz\BlogBundle\Entity\Post',
+        ));
+    }
+    public function getName()
+    {
+        return 'post';
+    }
+}
