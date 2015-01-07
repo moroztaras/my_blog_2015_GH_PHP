@@ -10,7 +10,13 @@ class PostController extends Controller
     public function indexAction()
     {
         $manager=$this->getDoctrine()->getManager();
-        $posts=$this->getDoctrine()->getRepository('BlogBlogBundle:Post')->findBy([],['id'=>'DESC']);
-        return $this->render('BlogBlogBundle:Post:index.html.twig', array('posts'=>$posts));
+        $posts=$this->getDoctrine()->getRepository('MorozBlogBundle:Post')->findBy([],['id'=>'DESC']);
+        return $this->render('MorozBlogBundle:Post:index.html.twig', array('posts'=>$posts));
+    }
+
+    public function showAction($id)
+    {
+        $post=$this->getDoctrine()->getRepository('MorozBlogBundle:Post')->find($id);
+        return $this->render('MorozBlogBundle:Post:show.html.twig', array('post'=>$post));
     }
 }
