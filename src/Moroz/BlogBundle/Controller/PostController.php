@@ -45,4 +45,14 @@ class PostController extends Controller
             return $this->render('MorozBlogBundle:Post:new.html.twig',array('form'=>$form->createView()));
         }
    }
+
+    public function delAction ($postId)
+    {
+        $maneger=$this->getDoctrine()->getManager();
+        $post=$maneger->getRepository('MorozBlogBundle:Post')->find($postId);
+        $maneger->remove($post);
+        $maneger->flush();
+        return $this->redirect(($this->generateUrl('blog_homepage')));
+
+    }
 }
