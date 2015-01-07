@@ -5,6 +5,7 @@
         <a href="{{ path('blog_post_show',{id:post.id}) }}">
             <h2>{{ post.title }}</h2>
         </a>
+        <p>{% trans %}Автор:{% endtrans %} {{ post.author }} | {% trans %}Створено:{% endtrans %} {{post.postedDate|date("d-m-Y")}} | {% trans %}Переглядів:{% endtrans %} {{ post.counter }}</p>
         <p>{{ post.content }}</p>
     {% endfor %}
 {% endblock %}
