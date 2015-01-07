@@ -1,3 +1,9 @@
-moroz_blog_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: MorozBlogBundle:Default:index }
+blog_homepage:
+    path:     /
+    defaults: { _controller: MorozBlogBundle:Post:index }
+
+blog_post_show:
+    path:     /post/{id}
+    defaults: { _controller: MorozBlogBundle:Post:show}
+    requirements:
+         _method: GET
