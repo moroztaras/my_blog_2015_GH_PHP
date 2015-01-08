@@ -2,6 +2,6 @@
 {% block title %}{{ post.title }} - Блог{% endblock %}
 {% block body %}
         <h2>{{ post.title }}</h2>
-    <p>{% trans %}Автор:{% endtrans %} {{ post.author }} | {% trans %}Створено:{% endtrans %} {{post.postedDate|date("d-m-Y")}} | {% trans %}Переглядів:{% endtrans %} {{ post.counter }}</p>
+        <p>Автор: {{ post.author }} | Створено: {{post.postedDate|date("d-m-Y")}} | Переглядів: {{ post.counter }} | <a href="{{ path('blog_post_edit',{postId:post.id}) }}">Редагувати</a> | <a href="{{ path('blog_post_del',{postId:post.id}) }}">Видалити</a></p>
         <p>{{ post.content }}</p>
 {% endblock %}
