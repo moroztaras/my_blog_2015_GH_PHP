@@ -54,7 +54,8 @@ class PostController extends Controller
         $maneger->flush();
         return $this->redirect(($this->generateUrl('blog_homepage')));
     }
-        public function editAction (Request $request, $postId)
+    
+    public function editAction (Request $request, $postId)
     {
         $post= new Post();
         $manager=$this->getDoctrine()->getManager();
