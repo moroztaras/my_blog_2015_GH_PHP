@@ -53,6 +53,23 @@ class PostController extends Controller
         $maneger->remove($post);
         $maneger->flush();
         return $this->redirect(($this->generateUrl('blog_homepage')));
+    }
+        public function editAction (Request $request, $postId)
+    {
+        $post= new Post();
+        $manager=$this->getDoctrine()->getManager();
+        $post=$manager->getRepository('MorozBlogBundle:Post')->find($postId);
 
+        $form=$this->createForm(new PostType(),$post);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $manager->persist($post);
+            $manager->flush();
+            return $this->redirect(($this->generateUrl('blog_post_show', array('postId'=>$postId))));
+        }else{
+            return $this->render('MorozBlogBundle:Post:edit.html.twig',array('form'=>$form->createView(),'id'=>$postId,'post'=>$post));
+        }
     }
 }
