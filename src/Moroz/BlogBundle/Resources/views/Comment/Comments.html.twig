@@ -1,13 +1,13 @@
 <p>
     <table>
         <tr>
-            <td>Автор:</td><td>{{ comment.author }}</td>
+            <td>{% trans %}Автор:{% endtrans %}</td><td>{{ comment.author }}</td>
         <tr>
         <tr>
-            <td>Створено:</td><td>{{comment.createdAt|date("d-m-Y H:i:s")}}</td>
+            <td>{% trans %}Створено:{% endtrans %}</td><td>{{comment.createdAt|date("d-m-Y H:i:s")}}</td>
         <tr>
         <tr>
-            <td>Коментар:</td><td>{{ comment.comment }}</td>
+            <td>{% trans %}Коментар:{% endtrans %}</td><td>{{ comment.comment }}</td>
         <tr>
     </table>
 </p>
