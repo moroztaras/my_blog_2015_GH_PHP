@@ -1,0 +1,13 @@
+<p>
+    <table>
+        <tr>
+            <td>Автор:</td><td>{{ comment.author }}</td>
+        <tr>
+        <tr>
+            <td>Створено:</td><td>{{comment.createdAt|date("d-m-Y H:i:s")}}</td>
+        <tr>
+        <tr>
+            <td>Коментар:</td><td>{{ comment.comment }}</td>
+        <tr>
+    </table>
+</p>
