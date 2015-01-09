@@ -2,7 +2,7 @@
     {{ form_errors(form) }}
     <table>
         <tr>
-            <td colspan="2" align="center"><strong>Створення нового коментаря</strong></td>
+            <td colspan="2" align="center"><strong>{% trans %}Створення нового коментаря{% endtrans %}</strong></td>
         </tr>
         <tr>
             <td>{{ form_label(form.author, 'Автор:') }}</td><td>{{ form_widget(form.author) }}</td>
@@ -10,7 +10,7 @@
         <tr>
             <td>{{ form_label(form.comment, 'Коментар:') }}</td><td>{{ form_widget(form.comment) }}</td>
         <tr>
-            <td colspan="2" align="center"><input type="submit" value="Додати коментар"></td>
+            <td colspan="2" align="center"><input type="submit" value="{% trans %}Додати коментар{% endtrans %}"></td>
         </tr>
     </table>
     {{ form_rest(form) }}
