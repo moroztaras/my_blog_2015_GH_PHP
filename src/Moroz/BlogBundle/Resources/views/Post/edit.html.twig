@@ -1,11 +1,11 @@
 {% extends 'MorozBlogBundle::baseBlogTemplate.html.twig' %}
-{% block title %}Редагування поста{% endblock %}
+{% block title %}{% trans %}Редагування поста{% endtrans %}{% endblock %}
 {% block body %}
     <form action="{{ path('blog_post_edit',{postId:post.id})}}" method="post" >
         {{ form_errors(form) }}
         <table>
             <tr>
-                <td colspan="2" align="center"><strong>Редагування поста</strong></td>
+                <td colspan="2" align="center"><strong>{% trans %}Редагування поста{% endtrans %}</strong></td>
             </tr>
             <tr>
                 <td>{{ form_label(form.title, 'Заголовок:') }}</td><td>{{ form_widget(form.title) }}</td>
@@ -19,9 +19,10 @@
             <tr>
                 <td>{{ form_label(form.content, 'Текст:') }}</td><td>{{ form_widget(form.content) }}</td>
             <tr>
-                <td colspan="2" align="center"><input type="submit" value="Обновити пост"></td>
+                <td colspan="2" align="center"><input type="submit" value="{% trans %}Обновити пост{% endtrans %}"></td>
             </tr>
         </table>
         {{ form_rest(form) }}
     </form>
 {% endblock %}
+
