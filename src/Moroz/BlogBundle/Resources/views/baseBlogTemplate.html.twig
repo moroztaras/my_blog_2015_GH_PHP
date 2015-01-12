@@ -10,8 +10,8 @@
 
     {% block stylesheets %}
         <!---bootstrap-->
-        <link href="{{ asset('bundles/my_blog/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
-        <link href="{{ asset('bundles/my_blog/bootstrap/css/bootstrap-responsive.css')}}" rel="stylesheet">
+        <link href="{{ asset('bundles/morozblog/css/bootstrap.css')}}" rel="stylesheet">
+        <link href="{{ asset('bundles/morozblog/css/bootstrap-responsive.css')}}" rel="stylesheet">
         <!---my_style-->
         <link href="{{ asset('bundles/my_blog/my_style/css/main.css')}}" rel="stylesheet">
     {% endblock %}
@@ -28,17 +28,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="{{ path('blog_homepage')}}">Блог - Мороз Тараса</a>
+            <a class="brand" href="{{ path('blog_homepage')}}">{% trans %}Блог - Мороз Тараса{% endtrans %}</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li class="active"><a href="{{ path('blog_homepage')}}">Головна</a></li>
-                    <li class="active"><a href="{{ path('blog_post_new')}}">Створити пост</a></li>
+                    <li class="active"><a href="{{ path('blog_index')}}">{% trans %}Головна{% endtrans %}</a></li>
+                    <li class="active"><a href="{{ path('blog_post_new')}}">{% trans %}Створити пост{% endtrans %}</a></li>
                     <li class="active">
                         <form action="#" method="POST" class="form-search">
                             <input type="text" name="search" class="input-medium search-query"/>
-                            <input type="submit" class="btn" value="Пошук"/>
+                            <input type="submit" class="btn" value="{% trans %}Пошук{% endtrans %}"/>
                         </form>
                     </li>
+                    <li class="active"><a href="{{  path('blog_homepage')}}">Uk</a></li>
+                    <li class="active"><a href="{{  path('blog_index',{_locale: "ru"}) }}">Ru</a></li>
+                    <li class="active"><a href="{{  path('blog_index',{_locale: "en"}) }}">En</a></li>
                 </ul>
             </div><!--/.nav-collapse-->
         </div>
@@ -51,7 +54,7 @@
     <div id="clear"></div>
 </div><!--/container-->
 <footer>
-    <p>Copyright © 2015 Блог - <a href="https://github.com/moroztaras">Мороз Тарас В.</a> Всі права захищені.</p>
+    <p>Copyright © 2015 {% trans %}Блог - Мороз Тарас В. Всі права захищені{% endtrans %}.</p>
 </footer>
 </body>
 </html>

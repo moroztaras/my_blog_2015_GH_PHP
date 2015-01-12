@@ -1,0 +1,9 @@
+body {
+    padding-top: 60px;
+}
+footer{
+    background-color: #111111;
+    color: #FFF;
+    padding: 5px 0px;
+    text-align: center;
+}

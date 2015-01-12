@@ -4,6 +4,8 @@ namespace Moroz\BlogBundle\Controller;
 
 use Moroz\BlogBundle\Entity\Post;
 use Moroz\BlogBundle\Form\Type\PostType;
+use Moroz\BlogBundle\Entity\Comment;
+use Moroz\BlogBundle\Form\Type\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,8 +24,15 @@ class PostController extends Controller
         $manager=$this->getDoctrine()->getManager();
         $post=$manager->getRepository('MorozBlogBundle:Post')->find($postId);
         $post->setCounter($post->getCounter()+1);
+        $comments=$this->getDoctrine()->getRepository('MorozBlogBundle:Comment')->findBy(array('postId'=>$postId),['id'=>'DESC']);
         $manager->flush();
-        return $this->render('MorozBlogBundle:Post:show.html.twig', array('post'=>$post));
+
+        $comment= new Comment();
+        $comment->setPostId($postId);
+
+        $form=$this->createForm(new CommentType(),$comment);
+
+        return $this->render('MorozBlogBundle:Post:show.html.twig', array('post'=>$post,'comments'=>$comments,'form'=>$form->createView(), 'id'=>$postId));
     }
 
     public function newAction(Request $request)
@@ -53,7 +62,6 @@ class PostController extends Controller
         $maneger->remove($post);
         $maneger->flush();
         return $this->redirect(($this->generateUrl('blog_homepage')));
-
     }
 
     public function editAction (Request $request, $postId)

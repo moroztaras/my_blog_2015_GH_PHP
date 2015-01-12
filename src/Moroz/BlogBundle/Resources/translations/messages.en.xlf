@@ -48,11 +48,11 @@
             </trans-unit>
             <trans-unit id="12">
                   <source>Обновити пост</source>
-                  <target>Reload post</target>
+                  <target>Update post</target>
             </trans-unit>
             <trans-unit id="13">
                    <source>Редагування поста</source>
-                   <target>Editing post</target>
+                   <target>Edit post</target>
             </trans-unit>
             <trans-unit id="14">
                    <source>Блог - Мороз Тараса</source>

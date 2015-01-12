@@ -1,5 +1,5 @@
 {% extends 'MorozBlogBundle::baseBlogTemplate.html.twig' %}
-{% block title %}Головна  сторінка - Блог{% endblock %}
+{% block title %}{% trans %}Головна  сторінка - Блог{% endtrans %}{% endblock %}
 {% block body %}
     {% for post in posts %}
         <a href="{{ path('blog_post_show',{postId:post.id}) }}">

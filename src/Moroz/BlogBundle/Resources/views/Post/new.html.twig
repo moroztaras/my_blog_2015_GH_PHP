@@ -1,11 +1,11 @@
 {% extends 'MorozBlogBundle::baseBlogTemplate.html.twig' %}
-{% block title %}Створення нового поста{% endblock %}
+{% block title %}{% trans %}Створення нового поста{% endtrans %}{% endblock %}
 {% block body %}
     <form action="{{ path('blog_post_new') }}" method="post">
         {{ form_errors(form) }}
         <table>
             <tr>
-                <td colspan="2" align="center"><strong>Створення нового поста</strong></td>
+                <td colspan="2" align="center"><strong>{% trans %}Створення нового поста{% endtrans %}</strong></td>
             </tr>
             <tr>
                 <td>{{ form_label(form.title, 'Заголовок:') }}</td><td>{{ form_widget(form.title) }}</td>
@@ -19,9 +19,10 @@
             <tr>
                 <td>{{ form_label(form.content, 'Текст:') }}</td><td>{{ form_widget(form.content) }}</td>
             <tr>
-                <td colspan="2" align="center"><input type="submit" value="Створити пост"></td>
+                <td colspan="2" align="center"><input type="submit" value="{% trans %}Створити пост{% endtrans %}"></td>
             </tr>
         </table>
         {{ form_rest(form) }}
     </form>
 {% endblock %}
+
